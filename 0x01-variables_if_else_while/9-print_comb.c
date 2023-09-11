@@ -14,9 +14,12 @@ int main(void)
 		putchar(c);
 	if (c <= '8')
 	{
-	putchar(',');
+	putchar(',')
+	putchar(");
+	}
 	}
 	}
 	putchar('\n');
 	return (0);
 }
+
