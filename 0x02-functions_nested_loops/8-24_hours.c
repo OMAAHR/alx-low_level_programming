@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * jack_bauver - print every minute of the day
+ * jack_bauer - print every minute of the day
  * Return: 0
  */
 void jack_bauer(void)
