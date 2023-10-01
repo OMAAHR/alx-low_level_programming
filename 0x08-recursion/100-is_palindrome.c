@@ -38,7 +38,7 @@ int comp_rec(char *s, int ln, int i)
 	{
 		return (0);
 	}
-	return (comp_rec(s, ln -1, i + 1));
+	return (comp_rec(s, ln - 1, i + 1));
 
 }
 
