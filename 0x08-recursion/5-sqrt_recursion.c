@@ -1,34 +1,45 @@
 #include "main.h"
 /**
- *  _sqrt_recursion - function that returns a natural square
+ *  cal_sqrt - function that returns a natural square
  *  @n: number for square
- *  Return: the result of the natural square
+ *  @guess: guess of square
+ *  Return: 0 or -1
+ */
+
+int cal_sqrt(int n, int guess)
+{
+
+	if (guess * guess == n)
+	{
+		return (guess);
+	}
+	else if (guess * guess > n)
+	{
+		return (-1);
+	}
+	else
+	{
+	return (cal_sqrt(n, guess + 1));
+	}
+}
+/**
+ * _sqrt_recursion - function to find the natural root a number
+ * @n: number for the calculation
+ * Return: whatever necessary
  */
 
 int _sqrt_recursion(int n)
 {
-
 	if (n < 0)
 	{
 		return (-1);
 	}
-	return (actual_sqrt_recursion(n, 1));
-}
-/**
- * actual_sqrt_recursion - function to find the natural root a number
- * @n: number for the calculation
- * @i: parameter
- * Return: whatever necessary
- */
-
-int actual_sqrt_recursion(int n, int i)
-{
-	if (i * i > n)
+	if (n == 0 || n == 1)
 	{
-		return (-1);
-	if (i * i == n)
-	{
-		return (i);
+		return (n);
 	}
-	return (actual_sqrt_recursion(n, i + 1));
+	else
+	{
+	return (cal_sqrt(n, 1));
+	}
 }
