@@ -15,7 +15,7 @@ int _strlen_recursion(char *s)
 	}
 	else
 	{
-		return (1 + _strlen recursion(s + 1));
+		return (1 + _strlen_recursion(s + 1));
 	}
 }
 
@@ -38,7 +38,7 @@ int comp_rec(char *s, int ln, int i)
 	{
 		return (0);
 	}
-	return (comp_rec(s, ln - 1, i + 1));
+	return (comp_rec(s, ln -1, i + 1));
 
 }
 
@@ -54,5 +54,5 @@ int is_palindrome(char *s)
 	int ln = _strlen_recursion(s);
 	int i = 0;
 
-	return (comp_rec(s, ln i));
+	return (comp_rec(s, ln, i));
 }
