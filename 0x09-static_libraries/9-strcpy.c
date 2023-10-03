@@ -7,7 +7,7 @@
  * Return: 0
  */
 
-char *_strcpy(char *dest, char *s)
+char *_strcpy(char *dest, char *src)
 {
 	int i = 0;
 	int j = 0;
@@ -18,7 +18,8 @@ char *_strcpy(char *dest, char *s)
 	}
 	for (; j < i; j++)
 	{
-		dest[j] src[j];
+		dest[j] = src[j];
+	}
 
 	dest[i] = '\0';
 	return (dest);
