@@ -1,48 +1,48 @@
 #include "main.h"
-
 /**
- * str_concat - function that conatenates two strings
+ * str_concat - function that concatenates two strings
  * @s1: string 1
  * @s2: string 2
- * Return: NULLon failure
+ * Return: NULL on failure
  */
-
 char *str_concat(char *s1, char *s2)
 {
-
-	int s1len = 0;
-	int s2len = 0;
-	int i;
+	size_t len1, len2, i, j;
 	char *result;
 
 	if (s1 == NULL)
 	{
-		s1 = "Betty ", "Holberton";
+		s1 = "";
 	}
+
 	if (s2 == NULL)
 	{
-		s2 = "Betty ", "Holberton";
+		s2 = "";
 	}
-	for (i = 0; s1[i] != '\0'; i++)
+	len1 = 0;
+	while (s1[len1] != '\0')
 	{
-		s1len++;
+		len1++;
 	}
-	for (i = 0; s2[i] != '\0'; i++)
+	len2 = 0;
+	while (s2[len2] != '\0')
 	{
-		s2len++;
+		len2++;
 	}
-	result = malloc(sizeof(char) * (s1len + s2len) + 1);
+	result = malloc(sizeof(char) * (len1 + len2 + 1));
 	if (result == NULL)
 	{
-	return (NULL);
+		free(result);
+		return (NULL);
 	}
-	for (i = 0; s1[i] != '\0'; i++)
+	for (i = 0; i < len1; i++)
 	{
 		result[i] = s1[i];
 	}
-	for (i = 0; s2[i] != '\0'; i++)
+	for (j = 0; j <= len2; j++)
 	{
-		result[s1len + 1] = s2[i];
+		result[i] = s2[j];
+		i++;
 	}
 	return (result);
 }
