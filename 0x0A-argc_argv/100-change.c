@@ -1,5 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 /**
  * main - prints minimum of coins
  * @argc: argument count
@@ -9,29 +11,39 @@
 
 int main(int argc, char *argv[])
 {
-	int cents, result = 0;
+	int coin;
+	int total = 0;
+	int coins[] = {25, 10, 5, 2, 1};
+	int i = 0;
 
-	if (argc == 1 || argc > 2)
+	if (argc != 2)
 	{
-		printf("ERROR\n");
+		printf("Error\n");
 		return (1);
 	}
-	cents = atoi(argv[1]);
-
-	while (cents > 0)
+	for (i = 1; i < (int)strlen(argv[1]); i++)
 	{
-		if (cents >= 25)
-			cents -= 25;
-		if (cents >= 10)
-			result += 10;
-		if (cents >= 5)
-			cents -= 5;
-		if (cents >= 2)
-			cents -= 2;
-		if (cents >= 1)
-			cents -= 1;
-		result += 1;
+		if (!isdigit(argv[1][i]))
+		{
+			printf("Error\n");
+			return (1);
+		}
 	}
-	printf("%d\n", result);
+	coin = atoi(argv[1]);
+	while (coin > 0)
+	{
+		i = 0;
+		while (i < 5)
+		{
+			if (coins[i] <= coin)
+			{
+				coin -= coins[i];
+				total++;
+				break;
+			}
+			i++;
+		}
+	}
+	printf("%d\n", total);
 	return (0);
 }
